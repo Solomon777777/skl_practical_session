@@ -1,6 +1,6 @@
-import os
+# import os
 
-
+'''
 word = "Lorem"
 cnt = 0
 lst = []
@@ -27,3 +27,38 @@ for i in range(len(lst)):
 g = open("output.txt", "w")
 g.write("Numarul maxim de aparitii este: " + str(max_no_of_occ))
 g.close()
+'''
+
+'''
+def read_data(file):
+   with open(file, "r") as f:
+    data = []
+    for line in f.readlines()[1:]:
+        data.append(int(line.split(",")[1]))
+    f.close()
+    return data
+def get_partial_sums(data):
+    sums = [0]
+    for i in range(1, len(data)+1):
+        sums.append(sums[i-1] + data[i-1])
+    return sums
+
+file_data = read_data("input.txt")
+sums = get_partial_sums(file_data)
+'''
+
+def read_data(file):
+    with open(file, "r") as f:
+        data = []
+        for line in f.readlines()[1:]:
+            data.append(int(line.split(",")[1]))
+    return data
+
+def get_partial_sums(data):
+    sums = [0]
+    for i in range(1, len(data)+1):
+        sums.append(sums[i-1] + data[i-1])
+    return sums
+
+file_data = read_data("input.txt")
+sums = get_partial_sums(file_data)
